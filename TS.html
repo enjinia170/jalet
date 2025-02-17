@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J-ALERT 環境設定</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background: #e0eafc;
+            padding: 10px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar h2 {
+            text-align: center;
+            color: #333;
+        }
+        .menu {
+            list-style: none;
+            padding: 0;
+        }
+        .menu li {
+            margin: 10px 0;
+        }
+        .menu a {
+            display: block;
+            padding: 10px;
+            background: #b0c4de;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .menu a:hover {
+            background: #778899;
+            color: #fff;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            background: white;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .content h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .status-panel {
+            width: 250px;
+            background: #dcdcdc;
+            padding: 10px;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .status-header {
+            background: navy;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .status-content {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>J-ALERT</h2>
+        <ul class="menu">
+            <li><a href="index.html">トップメニュー</a></li>
+            <li><a href="TS.html">環境設定</a></li>
+            <li><a href="TD.html">アラート手動起動</a></li>
+            <li><a href="TP.html">運用管理</a></li>
+            <li><a href="TT.html">試験起動</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h2>環境設定</h2>
+        <div class="form-group">
+            <label for="system-mode">システムモード</label>
+            <select id="system-mode">
+                <option value="normal">通常運用</option>
+                <option value="maintenance">メンテナンス</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="network-config">ネットワーク設定</label>
+            <input type="text" id="network-config" placeholder="192.168.1.1">
+        </div>
+        <div class="form-group">
+            <label for="alert-sound">警報音量</label>
+            <input type="range" id="alert-sound" min="0" max="100" value="50">
+        </div>
+    </div>
+    <div class="status-panel">
+        <div class="status-header">情報入力 待機中</div>
+        <div class="status-content">
+            <p><strong>受信機:</strong> 正常稼働</p>
+            <p><strong>音声警報:</strong> 待機中</p>
+            <p><strong>放送切替:</strong> 未使用</p>
+        </div>
+    </div>
+</body>
+</html>

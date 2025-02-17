@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>試験起動</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background: #e0eafc;
+            padding: 10px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar h2 {
+            text-align: center;
+            color: #333;
+        }
+        .menu {
+            list-style: none;
+            padding: 0;
+        }
+        .menu li {
+            margin: 10px 0;
+        }
+        .menu a {
+            display: block;
+            padding: 10px;
+            background: #b0c4de;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .menu a:hover {
+            background: #778899;
+            color: #fff;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            background: white;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .content h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .status-panel {
+            width: 250px;
+            background: #dcdcdc;
+            padding: 10px;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .status-header {
+            background: navy;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .status-content {
+            padding: 10px;
+            text-align: left;
+        }
+        .button-group button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            background: #ff6347;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button-group button:hover {
+            background: #d9534f;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>J-ALERT</h2>
+        <ul class="menu">
+        <ul class="menu">
+            <li><a href="index.html">トップメニュー</a></li>
+            <li><a href="TS.html">環境設定</a></li>
+            <li><a href="TD.html">アラート手動起動</a></li>
+            <li><a href="TP.html">運用管理</a></li>
+            <li><a href="TT.html">試験起動</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h2>試験起動</h2>
+        <div class="button-group">
+            <button onclick="playAlert('earthquake')">緊急地震速報 試験</button>
+            <button onclick="playAlert('j-alert')">J-ALERT 試験</button>
+        </div>
+    </div>
+    <div class="status-panel">
+        <div class="status-header">システム状態</div>
+        <div class="status-content">
+            <p><strong>受信機:</strong> 正常稼働</p>
+            <p><strong>警報システム:</strong> 待機中</p>
+            <p><strong>通信状態:</strong> 安定</p>
+        </div>
+    </div>
+    <script>
+       function playAlert(type) {
+    let audio = new Audio(type === 'earthquake' ? '緊急地震速報.mp3' : 'J－アラート.mp3');
+    audio.play();
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>運用管理</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background: #e0eafc;
+            padding: 10px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar h2 {
+            text-align: center;
+            color: #333;
+        }
+        .menu {
+            list-style: none;
+            padding: 0;
+        }
+        .menu li {
+            margin: 10px 0;
+        }
+        .menu a {
+            display: block;
+            padding: 10px;
+            background: #b0c4de;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .menu a:hover {
+            background: #778899;
+            color: #fff;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            background: white;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .content h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .status-panel {
+            width: 250px;
+            background: #dcdcdc;
+            padding: 10px;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .status-header {
+            background: navy;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .status-content {
+            padding: 10px;
+            text-align: left;
+        }
+        .loader {
+            display: none;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 10px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>J-ALERT</h2>
+        <ul class="menu">
+            <li><a href="index.html">トップメニュー</a></li>
+            <li><a href="TS.html">環境設定</a></li>
+            <li><a href="TD.html">アラート手動起動</a></li>
+            <li><a href="TP.html">運用管理</a></li>
+            <li><a href="TT.html">試験起動</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h2>運用管理</h2>
+        <p>システムの運用状態を監視し、手動で制御するためのページです。</p>
+        <div class="form-group">
+            <label for="system-status">システム状態</label>
+            <select id="system-status">
+                <option value="running">稼働中</option>
+                <option value="stopped">停止</option>
+                <option value="error">エラー</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="restart-system">システム再起動</label>
+            <button id="restart-system" onclick="restartSystem()">再起動</button>
+            <div id="loader" class="loader"></div>
+        </div>
+        <div class="form-group">
+            <label for="log-view">ログ表示</label>
+            <textarea id="log-view" rows="10" style="width:100%;" readonly>ログ情報がここに表示されます。</textarea>
+        </div>
+    </div>
+    <div class="status-panel">
+        <div class="status-header">システム状態</div>
+        <div class="status-content">
+            <p><strong>受信機:</strong> 正常稼働</p>
+            <p><strong>警報システム:</strong> 待機中</p>
+            <p><strong>通信状態:</strong> 安定</p>
+        </div>
+    </div>
+    <script>
+        function restartSystem() {
+            document.getElementById("loader").style.display = "block";
+            setTimeout(() => {
+                document.getElementById("loader").style.display = "none";
+                alert("システムが再起動しました。");
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
