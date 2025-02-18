@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>試験起動</title>
+    <title>手動起動</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -101,10 +101,10 @@
         </ul>
     </div>
     <div class="content">
-        <h2>試験起動</h2>
+        <h2>手動起動</h2>
         <div class="button-group">
-            <button onclick="playAlert('earthquake')">緊急地震速報 試験</button>
-            <button onclick="playAlert('j-alert')">J-ALERT 試験</button>
+            <button onclick="playAlert('earthquake')">緊急地震速報</button>
+            <button onclick="playAlert('j-alert')">J-ALERT</button>
         </div>
     </div>
     <div class="status-panel">
@@ -117,7 +117,7 @@
     </div>
     <script>
        function playAlert(type) {
-    let audio = new Audio(type === 'earthquake' ? '緊急地震速報.mp3' : 'J－アラート.mp3');
+    let audio = new Audio(type === 'earthquake' ? '緊急地震速報.mp3' : '60632.mp3');
     audio.play();
 }
 
