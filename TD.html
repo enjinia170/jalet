@@ -127,7 +127,7 @@
     <script>
         function playAlert(type) {
             document.getElementById('loading').style.display = 'block';
-            let audio = new Audio(type === 'earthquake' ? '緊急地震速報.mp3' : 'J-アラート.mp3');
+            let audio = new Audio(type === 'earthquake' ? 'zisinn.mp3' : 'mix_1m25s (audio-joiner.com).mp3');
             audio.play();
             audio.onended = () => {
                 document.getElementById('loading').style.display = 'none';
